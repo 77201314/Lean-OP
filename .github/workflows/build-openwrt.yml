@@ -74,18 +74,15 @@ jobs:
     
     - name: 下载软件包
       run: |
-        cd openwrt/package
-        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-        git clone https://github.com/destan19/OpenAppFilter && mv -f OpenAppFilter/* ./
-        git clone https://github.com/tty228/luci-app-serverchan
-        git clone https://github.com/garypang13/luci-app-eqos
-    
-    - name: 下载HelloWorld-code
-      run: |
-        cd openwrt/package/lean
-        #git lua-maxminddb 依赖
-        git clone https://github.com/jerrykuku/lua-maxminddb.git  
-        git clone https://github.com/jerrykuku/luci-app-vssr.git
+       cd openwrt/package/lean
+       rm -rf luci-theme-argon
+       #git lua-maxminddb 依赖
+       git clone https://github.com/jerrykuku/lua-maxminddb.git  
+       git clone https://github.com/jerrykuku/luci-app-vssr.git
+       git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+       git clone https://github.com/destan19/OpenAppFilter && mv -f OpenAppFilter/* ./
+       git clone https://github.com/tty228/luci-app-serverchan
+       git clone https://github.com/garypang13/luci-app-eqos
 
     - name: Load custom feeds
       run: |
